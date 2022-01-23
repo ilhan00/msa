@@ -17,7 +17,7 @@ spec:
         - name: flask-ui
           image: ilhan00/flask-ui:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 80
               name: http
               protocol: TCP
 ---
@@ -34,5 +34,5 @@ spec:
     run: flask-ui
   ports:
     - name: http
-      port: 8000
+      port: 80
       protocol: TCP
