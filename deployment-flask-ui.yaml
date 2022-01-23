@@ -1,0 +1,38 @@
+# flask-ui
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-ui
+spec:
+  selector:
+    matchLabels:
+      run: flask-ui
+  template:
+    metadata:
+      labels:
+        run: flask-ui
+    spec:
+      containers:
+        - name: flask-ui
+          image: ilhan00/flask-ui:latest
+          ports:
+            - containerPort: 8000
+              name: http
+              protocol: TCP
+---
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-ui
+  labels:
+    run: flask-ui
+spec:
+  type: LoadBalancer
+  selector:
+    run: flask-ui
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
