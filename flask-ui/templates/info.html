@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='utf-8'>
+  <title>Deven Rathod -Free Movie Server</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"/>
+ <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
+    
+</head>
+
+<div class="c2">
+         <marquee><p>Made With 💙
+ by Deven </p></marquee>
+</div>
+<body>
+<header>
+  <div class="nav">
+  <hr/>
+<nav>
+
+  <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=please%20add%20the%20movie">Request movie</a></li>
+  <li><a href="https://api.whatsapp.com/send?phone=+911234567890&text=want%20to%20contact%20you">Contact</a></li>
+  <li><a href="{{url_for('static', filename='about.html')}}">About</a></li>
+  <li><a href="upload.html">Upload Movies</a></li>
+
+   </ul>
+
+</nav>
+<hr/>
+</div>
+<center>
+    {% if data['poster_url'] =='string' %}
+    <img src="{{url_for('static', filename='assets/0.jpg')}}" style="width:100%">
+    {% else %}
+    <img src="{{data['poster_url']}}" style="width:100%">
+    {% endif %}
+</center>
+  <h1 class="headh1">{{data['title']}}</h1>
+     <h2 class="headh1">rating: {{data['rating']}}</h2>
+     <br/>
+     <h2 class="headh1">{{data['description']}}</h3>
+     
+   </header>
+
+</body>
+</html>
